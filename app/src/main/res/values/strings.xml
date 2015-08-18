@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WakeOnAndroid</string>
+    <string name="app_title">Wake On Android</string>
+    <string name="action_settings">Settings</string>
+</resources>

@@ -48,10 +48,8 @@
                 android:onClick="sendWakeUpSignal"
                 android:text="@string/wakeAction"
                 android:textColor="#66CCCC" />
-
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
-
 
 </LinearLayout>

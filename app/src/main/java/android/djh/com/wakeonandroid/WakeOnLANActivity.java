@@ -6,11 +6,12 @@ import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.djh.udp.UDPBroadcastLoader;
 
-public class WakeOnLANActivity extends Activity {
+public class WakeOnLANActivity extends Activity   {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,5 +49,8 @@ public class WakeOnLANActivity extends Activity {
 
         UDPBroadcastLoader.sendMagicPacket(UDPBroadcastLoader.TARGET_IP_ADDRESS, UDPBroadcastLoader.TARGET_MAC_ADDRESS);
         Toast.makeText(this, "Wake Up Signal Has Been Sent", Toast.LENGTH_SHORT).show();
+
+        ImageView imageView = (ImageView) findViewById(R.id.wakeStateImage);
+        imageView.setImageResource(R.drawable.droid);
     }
 }

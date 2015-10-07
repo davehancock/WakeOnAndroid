@@ -2,5 +2,6 @@
     <string name="app_name">WakeOnAndroid</string>
     <string name="app_title">Wake On Android</string>
     <string name="action_settings">Settings</string>
-    <string name="wake_action">Wake Me Up!</string>
+    <string name="wakeAction">Wake Me Up!</string>
+    <string name="wakeContentDescription">This image represents the state of computer</string>
 </resources>

@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.djh.udp.UDPBroadcastLoader;
+import java.io.IOException;
 
 public class WakeOnLANActivity extends Activity   {
 
@@ -41,12 +41,13 @@ public class WakeOnLANActivity extends Activity   {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendWakeUpSignal(View v) {
+    public void sendWakeUpSignal(View v) throws IOException {
 
         // TODO Fix this
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        // TODO Fix this bubbled exception
         UDPBroadcastLoader.sendMagicPacket(UDPBroadcastLoader.TARGET_IP_ADDRESS, UDPBroadcastLoader.TARGET_MAC_ADDRESS);
         Toast.makeText(this, "Wake Up Signal Has Been Sent", Toast.LENGTH_SHORT).show();
 

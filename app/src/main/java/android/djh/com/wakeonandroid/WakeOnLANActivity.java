@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.djh.udp.UDPBroadcastLoader;
+
 import java.io.IOException;
 
 public class WakeOnLANActivity extends Activity   {
@@ -54,4 +56,5 @@ public class WakeOnLANActivity extends Activity   {
         ImageView imageView = (ImageView) findViewById(R.id.wakeStateImage);
         imageView.setImageResource(R.drawable.droid);
     }
+
 }

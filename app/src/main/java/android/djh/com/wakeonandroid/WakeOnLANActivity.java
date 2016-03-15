@@ -13,7 +13,14 @@ import com.djh.udp.UDPBroadcastLoader;
 
 import java.io.IOException;
 
-public class WakeOnLANActivity extends Activity   {
+public class WakeOnLANActivity extends Activity {
+
+    // TODO Abstract these into configuration within Android preferences
+    // http://developer.android.com/guide/topics/data/data-storage.html
+    private static final String TARGET_IP_ADDRESS = "192.168.0.255";
+
+    private static final String TARGET_MAC_ADDRESS = "10-BF-48-86-56-40";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,7 @@ public class WakeOnLANActivity extends Activity   {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_wake_on_lan, menu);
         return true;
@@ -30,17 +38,12 @@ public class WakeOnLANActivity extends Activity   {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
     public void sendWakeUpSignal(View v) throws IOException {
@@ -50,7 +53,7 @@ public class WakeOnLANActivity extends Activity   {
         StrictMode.setThreadPolicy(policy);
 
         // TODO Fix this bubbled exception
-        UDPBroadcastLoader.sendMagicPacket(UDPBroadcastLoader.TARGET_IP_ADDRESS, UDPBroadcastLoader.TARGET_MAC_ADDRESS);
+        UDPBroadcastLoader.sendMagicPacket(TARGET_IP_ADDRESS, TARGET_MAC_ADDRESS);
         Toast.makeText(this, "Wake Up Signal Has Been Sent", Toast.LENGTH_SHORT).show();
 
         ImageView imageView = (ImageView) findViewById(R.id.wakeStateImage);
